@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native';
-import LoadFonts from "../styles/fonts";
 
 export default function SplashScreen({navigation}) {
   
@@ -12,7 +11,6 @@ export default function SplashScreen({navigation}) {
 
   return (
     <SafeAreaView style={styles.container} >
-      <LoadFonts/>
       <Text style={styles.text}>Добро пожаловать!</Text>
       <Image source={require('../assets/splash-screen-icon.svg')} style={styles.icon}/>      
     </SafeAreaView>

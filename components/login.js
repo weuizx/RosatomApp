@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import LoadFonts from "../styles/fonts";
 import {
   StyleSheet,
   Text,
@@ -23,7 +22,6 @@ export default function Login({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LoadFonts/>
       <StatusBar style="auto" />
       <SafeAreaView style={styles.inner}>
         <SafeAreaView>

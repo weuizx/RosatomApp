@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import LoadFonts from "../styles/fonts";
 import {
   StyleSheet,
   Text,
@@ -23,11 +22,10 @@ export default function Register({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LoadFonts/>
       <StatusBar style="auto" />
       <SafeAreaView style={styles.inner}>
         <SafeAreaView>
-          <Text style={styles.title} >Вход</Text>
+          <Text style={styles.title} >Регистрация</Text>
         </SafeAreaView>
 
         <SafeAreaView style={styles.inputView}>
