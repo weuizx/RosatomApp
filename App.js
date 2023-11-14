@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, View,  Image} from 'react-native';
 import MainStack from './navigate';
+import MainContainer from './navigation/mainContainer';
 import * as Font from 'expo-font';
 import AppLoading from "expo-app-loading";
 
@@ -19,9 +20,10 @@ export default function App() {
 
   if(font) {
     return (
-      <View style={styles.container}>
-        <MainStack/>
-      </View>
+      <MainContainer/>
+      // <View style={styles.container}>
+      //   <MainStack/>
+      // </View>
     );
   } else {
     return(
