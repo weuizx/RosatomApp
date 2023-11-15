@@ -11,8 +11,8 @@ export default function SplashScreen({navigation}) {
 
   return (
     <SafeAreaView style={styles.container} >
-      <Image source={require('../assets/atom-logo.png')} style={styles.icon}/>    
-      <Text style={styles.text}>Добро пожаловать, Дмитрий!</Text>  
+      <Image source={require('../assets/logo-atom.png')} style={styles.icon}/>    
+      {/* <Text style={styles.text}>Добро пожаловать!</Text>   */}
     </SafeAreaView>
   );  
 }
@@ -21,18 +21,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-    justifyContent: 'flex',
+    justifyContent: 'center',
     alignItems: 'center'
   },
   icon: {
-    marginTop : '30%',
-    width: '100%',
+    width: 320,
+    height: 320,
   },
   text:{
-    fontFamily: 'OpenSans-ExtraBold',
-    fontSize: 38,
-    marginTop: '20%',
-    color: '#092A35'
+    fontFamily: 'Roboto-900',
+    marginTop: 10,
+    fontSize: 32,
+    color: '#333333'
   }
 });
 
