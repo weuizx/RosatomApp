@@ -21,9 +21,9 @@ export default function App() {
   if(font) {
     return (
       <MainContainer/>
-      // <View style={styles.container}>
-      //   <MainStack/>
-      // </View>
+        // <View style={styles.container}>
+        //   <MainStack/>
+        // </View>
     );
   } else {
     return(
