@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text:{
-    fontFamily: 'OpenSans-ExtraBold',
+    fontFamily: 'OpenSans-Bold',
     fontSize: 38,
     marginTop: '20%',
     color: '#092A35'

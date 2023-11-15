@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity, View, Text } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Statistic1 from './screens/statistic1';
@@ -19,7 +18,7 @@ const screenOptions = {
     tabBarShowLabel : false,
     headerShown : false,
     tabBarStyle : {
-        position : 'abcolute',
+        position : 'absolute',
         bottom : 0,
         right : 0,
         left : 0,
@@ -31,7 +30,6 @@ const screenOptions = {
 
 export default function MainContainer() {
     return(
-         <NavigationContainer>
              <Tab.Navigator screenOptions={screenOptions}>
                 
                  <Tab.Screen name = {stat1Name} component = {Statistic1}  options = {{
@@ -81,7 +79,6 @@ export default function MainContainer() {
 
                 
              </Tab.Navigator>
-         </NavigationContainer>
     );
 }
 

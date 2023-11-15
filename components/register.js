@@ -12,7 +12,7 @@ import {
 export default function Register({navigation}) {
 
   const loadSceneApp = () => {
-    //navigation.navigate('SplashScreen');
+    navigation.navigate('MainContainer');
   }
   const loadSceneLogin = () => {
     navigation.navigate('Login');
