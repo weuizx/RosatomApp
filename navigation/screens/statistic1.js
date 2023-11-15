@@ -10,6 +10,8 @@ import {
     Modal
   } from "react-native";
 
+import Logo from "../../assets/icons/stat1";  
+
 export default function Statistic1() { 
   const [infoWindow,setInfoWindow] = useState(false);
 
@@ -37,6 +39,7 @@ export default function Statistic1() {
         
         <TouchableOpacity onPress={ ()=>setInfoWindow(true) }>
           <Image style={{width:48,height:48}} source={require('/Users/dmitriykosolobov/VSCodeProjects/Project/assets/favicon.png')}/>
+          <Logo/>
         </TouchableOpacity>  
         
       </SafeAreaView>
