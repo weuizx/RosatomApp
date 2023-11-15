@@ -12,7 +12,7 @@ import {
 export default function Login({navigation}) {
 
   const loadSceneApp = () => {
-    //navigation.navigate('MainContainer');
+    navigation.navigate('MainContainer');
   }
   const loadSceneRegister = () => {
     navigation.navigate('Register');
