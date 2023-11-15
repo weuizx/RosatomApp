@@ -65,44 +65,43 @@ export default function Login({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#658525",
+    backgroundColor: "#4E9DDA",
     alignItems: "center",
     justifyContent: "center",
   },
   inner:{
     backgroundColor: "#fff",
     width: '85%',
-    paddingBottom: 25,
     marginLeft: 25,
     marginRight: 25,
     borderRadius: 25,
     alignItems: "center",
   },
   title:{
-    fontFamily: 'OpenSans-Bold',
-    fontSize: 24,
+    fontFamily: 'Roboto-700',
+    fontSize: 28,
     marginTop: 25,
     marginBottom:25,
-    color: '#092A35'
+    color: '#333333'
   },
   inputView: {
     marginBottom: 20,
     borderRadius: 25,
-    borderColor: '#092A35',
+    borderColor: '#333333',
     borderWidth: 1,
     width: '84%',
     justifyContent:'center',
   },
   inputText:{
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'Roboto-400',
     fontSize: 14,
-    color: '#092A35',
+    color: '#333333',
     marginLeft: 25,
     marginBottom: 10,
     marginTop: 10
   },
   loginBtn:{
-    borderColor: '#22CA36',
+    borderColor: '#4E9DDA',
     borderWidth: 2,
     borderRadius: 25,
     paddingLeft: 40,
@@ -111,9 +110,9 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   loginBtnText:{
-    fontFamily: 'OpenSans-SemiBold',
+    fontFamily: 'Roboto-700',
     fontSize: 16,
-    color: '#092A35',
+    color: '#333333',
     marginBottom: 8,
     marginTop: 8
   },
@@ -121,15 +120,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   registerBtnText:{
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'Roboto-400',
     fontSize: 12,
     color: '#000',
   },
   forgotBtn:{
     marginTop: 10,
+    marginBottom: 25,
   },
   forgotBtnText:{
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'Roboto-400',
     fontSize: 10,
     color: '#000',
   }

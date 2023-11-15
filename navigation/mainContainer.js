@@ -34,44 +34,44 @@ export default function MainContainer() {
                 
                  <Tab.Screen name = {stat1Name} component = {Statistic1}  options = {{
                     tabBarIcon : ({focused}) => (
-                        <View style = {{alignItems : 'center', justifyContent : 'center'}}>
+                        <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/stat1.png')}
+                            source = {require('../assets/icons/stat1.svg')}
                             resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
                     )
                  }}
                  />
                  <Tab.Screen name = {stat2Name} component = {Statistic2}  options = {{
                     tabBarIcon : ({focused}) => (
-                        <View>
+                        <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/stat2.png')}
+                            source = {require('../assets/icons/stat2.svg')}
                             resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
                     )
                  }}
                  />
                  <Tab.Screen name = {scannerName} component = {Scanner}  options = {{
                     tabBarIcon : ({focused}) => (
-                        <View>
+                        <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/scanner.png')}
+                            source = {require('../assets/icons/scanner.svg')}
                             resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
                     )
                  }}
                  />
                  <Tab.Screen name = {profileName} component = {Profile}  options = {{
                     tabBarIcon : ({focused}) => (
-                        <View>
+                        <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/profile.png')}
+                            source = {require('../assets/icons/profile.svg')}
                             resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
                     )
                  }}
@@ -84,9 +84,13 @@ export default function MainContainer() {
 
 
 const styles = StyleSheet.create({
+    iconContainer:{
+      alignItems : 'center', 
+      justifyContent : 'center'
+    },
     icon: {
-      width : 25,
-      height : 25,
+      width : 34,
+      height : 34,
       backgroundColor : '#fff',
     },
 
