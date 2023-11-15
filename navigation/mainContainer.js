@@ -15,54 +15,82 @@ const scannerName = 'scanner';
 const profileName = 'profile';
 
 const Tab = createBottomTabNavigator();
-
-export default function MainContainer() {
-  return(
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name = {stat1Name} component = {Statistic1}  //options = {{
-          //     tabBarIcon : ({focused}) => (
-          //         <View style = {{alignItems : 'center', justifyContent : 'center'}}>
-          //             <Image
-          //             source = {require('../assets/icons/stat1.png')}
-          //             resizeMode = 'contain'/>
-          //         </View>
-          //     )
-          //  }}
-        />
-        <Tab.Screen name = {stat2Name} component = {Statistic2}  //options = {{
-          //     tabBarIcon : ({focused}) => (
-          //         <View>
-          //             <Image
-          //             source = {require('../assets/icons/stat2.png')}
-          //             resizeMode = 'contain'/>
-          //         </View>
-          //     )
-          //  }}
-        />
-        <Tab.Screen name = {scannerName} component = {Scanner}  //options = {{
-          //     tabBarIcon : ({focused}) => (
-          //         <View>
-          //             <Image
-          //             source = {require('../assets/icons/scanner.png')}
-          //             resizeMode = 'contain'/>
-          //         </View>
-          //     )
-          //  }}
-        />
-        <Tab.Screen name = {profileName} component = {Profile}  //options = {{
-                //     tabBarIcon : ({focused}) => (
-                //         <View>
-                //             <Image
-                //             source = {require('../assets/icons/profile.png')}
-                //             resizeMode = 'contain'/>
-                //         </View>
-                //     )
-                //  }}
-        />
-
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+const screenOptions = {
+    tabBarShowLabel : false,
+    headerShown : false,
+    tabBarStyle : {
+        position : 'abcolute',
+        bottom : 0,
+        right : 0,
+        left : 0,
+        elevation : 0,
+        height : 60,
+        backgroundColor : '#fff'
+    }
 }
 
+export default function MainContainer() {
+    return(
+         <NavigationContainer>
+             <Tab.Navigator screenOptions={screenOptions}>
+                
+                 <Tab.Screen name = {stat1Name} component = {Statistic1}  options = {{
+                    tabBarIcon : ({focused}) => (
+                        <View style = {{alignItems : 'center', justifyContent : 'center'}}>
+                            <Image
+                            source = {require('../assets/icons/stat1.png')}
+                            resizeMode = 'contain'
+                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                        </View>
+                    )
+                 }}
+                 />
+                 <Tab.Screen name = {stat2Name} component = {Statistic2}  options = {{
+                    tabBarIcon : ({focused}) => (
+                        <View>
+                            <Image
+                            source = {require('../assets/icons/stat2.png')}
+                            resizeMode = 'contain'
+                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                        </View>
+                    )
+                 }}
+                 />
+                 <Tab.Screen name = {scannerName} component = {Scanner}  options = {{
+                    tabBarIcon : ({focused}) => (
+                        <View>
+                            <Image
+                            source = {require('../assets/icons/scanner.png')}
+                            resizeMode = 'contain'
+                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                        </View>
+                    )
+                 }}
+                 />
+                 <Tab.Screen name = {profileName} component = {Profile}  options = {{
+                    tabBarIcon : ({focused}) => (
+                        <View>
+                            <Image
+                            source = {require('../assets/icons/profile.png')}
+                            resizeMode = 'contain'
+                            style = {[styles.icon, {tintColor : focused ? '#4E9DDA' : '#8D8C8C'}]} />
+                        </View>
+                    )
+                 }}
+                 />
+
+                
+             </Tab.Navigator>
+         </NavigationContainer>
+    );
+}
+
+
+const styles = StyleSheet.create({
+    icon: {
+      width : 25,
+      height : 25,
+      backgroundColor : '#fff',
+    },
+
+  });
