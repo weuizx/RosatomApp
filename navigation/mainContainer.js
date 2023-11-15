@@ -17,42 +17,40 @@ const profileName = 'profile';
 const Tab = createBottomTabNavigator();
 
 export default function MainContainer() {
-    return(
-         <NavigationContainer>
-             <Tab.Navigator>
-
-                
-                 <Tab.Screen name = {stat1Name} component = {Statistic1}  //options = {{
-                //     tabBarIcon : ({focused}) => (
-                //         <View style = {{alignItems : 'center', justifyContent : 'center'}}>
-                //             <Image
-                //             source = {require('../assets/icons/stat1.png')}
-                //             resizeMode = 'contain'/>
-                //         </View>
-                //     )
-                //  }}
-                 />
-                 <Tab.Screen name = {stat2Name} component = {Statistic2}  //options = {{
-                //     tabBarIcon : ({focused}) => (
-                //         <View>
-                //             <Image
-                //             source = {require('../assets/icons/stat2.png')}
-                //             resizeMode = 'contain'/>
-                //         </View>
-                //     )
-                //  }}
-                 />
-                 <Tab.Screen name = {scannerName} component = {Scanner}  //options = {{
-                //     tabBarIcon : ({focused}) => (
-                //         <View>
-                //             <Image
-                //             source = {require('../assets/icons/scanner.png')}
-                //             resizeMode = 'contain'/>
-                //         </View>
-                //     )
-                //  }}
-                 />
-                 <Tab.Screen name = {profileName} component = {Profile}  //options = {{
+  return(
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name = {stat1Name} component = {Statistic1}  //options = {{
+          //     tabBarIcon : ({focused}) => (
+          //         <View style = {{alignItems : 'center', justifyContent : 'center'}}>
+          //             <Image
+          //             source = {require('../assets/icons/stat1.png')}
+          //             resizeMode = 'contain'/>
+          //         </View>
+          //     )
+          //  }}
+        />
+        <Tab.Screen name = {stat2Name} component = {Statistic2}  //options = {{
+          //     tabBarIcon : ({focused}) => (
+          //         <View>
+          //             <Image
+          //             source = {require('../assets/icons/stat2.png')}
+          //             resizeMode = 'contain'/>
+          //         </View>
+          //     )
+          //  }}
+        />
+        <Tab.Screen name = {scannerName} component = {Scanner}  //options = {{
+          //     tabBarIcon : ({focused}) => (
+          //         <View>
+          //             <Image
+          //             source = {require('../assets/icons/scanner.png')}
+          //             resizeMode = 'contain'/>
+          //         </View>
+          //     )
+          //  }}
+        />
+        <Tab.Screen name = {profileName} component = {Profile}  //options = {{
                 //     tabBarIcon : ({focused}) => (
                 //         <View>
                 //             <Image
@@ -61,10 +59,10 @@ export default function MainContainer() {
                 //         </View>
                 //     )
                 //  }}
-                 />
+        />
 
-                
-             </Tab.Navigator>
-         </NavigationContainer>
-    );
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
+
