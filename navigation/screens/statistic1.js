@@ -39,7 +39,7 @@ export default function Statistic1() {
         
         <TouchableOpacity onPress={ ()=>setInfoWindow(true) }>
           <Image style={{width:48,height:48}} source={require('/Users/dmitriykosolobov/VSCodeProjects/Project/assets/favicon.png')}/>
-          <Logo/>
+          <Logo color="#15256D"/>
         </TouchableOpacity>  
         
       </SafeAreaView>
