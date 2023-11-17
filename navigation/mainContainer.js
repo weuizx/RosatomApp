@@ -36,7 +36,7 @@ export default function MainContainer() {
                     tabBarIcon : ({focused}) => (
                         <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/stat1.svg')}
+                            source = {require('../assets/icons/stat1.png')}
                             resizeMode = 'contain'
                             style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
@@ -47,7 +47,7 @@ export default function MainContainer() {
                     tabBarIcon : ({focused}) => (
                         <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/stat2.svg')}
+                            source = {require('../assets/icons/stat2.png')}
                             resizeMode = 'contain'
                             style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
@@ -58,7 +58,7 @@ export default function MainContainer() {
                     tabBarIcon : ({focused}) => (
                         <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/scanner.svg')}
+                            source = {require('../assets/icons/scanner.png')}
                             resizeMode = 'contain'
                             style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
@@ -69,7 +69,7 @@ export default function MainContainer() {
                     tabBarIcon : ({focused}) => (
                         <View style = {styles.iconContainer}>
                             <Image
-                            source = {require('../assets/icons/profile.svg')}
+                            source = {require('../assets/icons/profile.png')}
                             resizeMode = 'contain'
                             style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
                         </View>
