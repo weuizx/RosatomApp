@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Image, TouchableOpacity, View, Text } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -28,58 +28,56 @@ const screenOptions = {
     }
 }
 
-export default function MainContainer() {
-    return(
-             <Tab.Navigator screenOptions={screenOptions}>
-                
-                 <Tab.Screen name = {stat1Name} component = {Statistic1}  options = {{
-                    tabBarIcon : ({focused}) => (
-                        <View style = {styles.iconContainer}>
-                            <Image
-                            source = {require('../assets/icons/stat1.png')}
-                            resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
-                        </View>
-                    )
-                 }}
-                 />
-                 <Tab.Screen name = {stat2Name} component = {Statistic2}  options = {{
-                    tabBarIcon : ({focused}) => (
-                        <View style = {styles.iconContainer}>
-                            <Image
-                            source = {require('../assets/icons/stat2.png')}
-                            resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
-                        </View>
-                    )
-                 }}
-                 />
-                 <Tab.Screen name = {scannerName} component = {Scanner}  options = {{
-                    tabBarIcon : ({focused}) => (
-                        <View style = {styles.iconContainer}>
-                            <Image
-                            source = {require('../assets/icons/scanner.png')}
-                            resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
-                        </View>
-                    )
-                 }}
-                 />
-                 <Tab.Screen name = {profileName} component = {Profile}  options = {{
-                    tabBarIcon : ({focused}) => (
-                        <View style = {styles.iconContainer}>
-                            <Image
-                            source = {require('../assets/icons/profile.png')}
-                            resizeMode = 'contain'
-                            style = {[styles.icon, {tintColor : focused ? '#15256D' : '#8D8C8C'}]} />
-                        </View>
-                    )
-                 }}
-                 />
+import IconStat1 from "../assets/icons/stat1";
+import IconStat2 from "../assets/icons/stat2";
+import IconProfile from "../assets/icons/profile";
+import IconScanner from "../assets/icons/scanner";
 
-                
-             </Tab.Navigator>
-    );
+export default function MainContainer() {
+  return(
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name = {stat1Name} component = {Statistic1}  options = {{
+        tabBarIcon : ({focused}) => {
+          let color = focused ? "#15256D" : "#8D8C8C";
+          return(
+            <View style = {styles.iconContainer}>
+                <IconStat1 color={color} />
+            </View>
+          );
+        }            
+      }}/>
+      <Tab.Screen name = {stat2Name} component = {Statistic2}  options = {{
+        tabBarIcon : ({focused}) => {
+          let color = focused ? "#15256D" : "#8D8C8C";
+          return(
+            <View style = {styles.iconContainer}>
+                <IconStat2 color={color} />
+            </View>
+          );
+        }             
+      }}/>
+      <Tab.Screen name = {scannerName} component = {Scanner}  options = {{
+        tabBarIcon : ({focused}) => {
+          let color = focused ? "#15256D" : "#8D8C8C";
+          return(
+            <View style = {styles.iconContainer}>
+                <IconScanner color={color} />
+            </View>
+          );
+        }
+      }}/>
+      <Tab.Screen name = {profileName} component = {Profile}  options = {{
+        tabBarIcon : ({focused}) => {
+          let color = focused ? "#15256D" : "#8D8C8C";
+          return(
+            <View style = {styles.iconContainer}>
+                <IconProfile color={color} />
+            </View>
+          );
+        }            
+      }}/>
+    </Tab.Navigator>
+  );
 }
 
 
