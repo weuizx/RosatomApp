@@ -83,12 +83,16 @@ export default function Statistic1() {
 
       </View>
 
-      {/* <AddItem addHandler = {addItem}/> */}
-      <View style={styles.listItems}>
-        <FlatList data={listOfItems} renderItem={({item}) => (
-          <ListItem el = {item} />
-        )}/>
+      <View style={styles.dataTextContainer}>
+        <Text style={styles.dataText}>Сегодня</Text>
       </View>
+
+      {/* <AddItem addHandler = {addItem}/> */}
+      
+      <FlatList data={listOfItems} renderItem={({item}) => (
+        <ListItem el = {item} />
+      )} style={{width:"100%"}}/>
+      
       
       
     </SafeAreaView >
@@ -116,6 +120,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#4E9DDA26",
     flexDirection: "row",
     borderRadius: 11,
+    width: '90%',
+    justifyContent: 'space-between',
   },
   monthLabel:{
     textAlign: 'center',
@@ -124,9 +130,18 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-700",
     fontSize: 16
   },
-  listItems:{
+  dataTextContainer:{
+    paddingLeft: 25,
+    marginTop: 15,
+    marginBottom: 5,
     width: '100%'
   },
+  dataText:{
+    fontFamily: "Roboto-400",
+    fontSize: 16,
+    color: "#333333"
+  },
+
 
 
 
