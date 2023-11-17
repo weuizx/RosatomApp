@@ -1,19 +1,32 @@
 import React, {useEffect, useState} from "react";
 import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native';
+import { Animated } from 'react-native';
 
 export default function SplashScreen({navigation}) {
+  const [fadeAnim] = useState(new Animated.Value(0));
   
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true,
+      }
+    ).start();
+  }, [])
+
   useEffect( () => {
     setTimeout(() => {
       navigation.navigate('Login');
-    },3000)
+    },5000)
   },[]);
 
   return (
-    <SafeAreaView style={styles.container} >
+    <Animated.View style={[styles.container,{opacity:fadeAnim}]}>
       <Image source={require('../assets/logo-atom.png')} style={styles.icon}/>    
       {/* <Text style={styles.text}>Добро пожаловать!</Text>   */}
-    </SafeAreaView>
+    </Animated.View>
   );  
 }
 
