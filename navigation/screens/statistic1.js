@@ -12,15 +12,16 @@ import {
 
 import InfoIcon from "../../assets/icons/info";
 import CalendarIcon from "../../assets/icons/calendar";
-import ReplaceIcon from "../../assets/icons/replacement";
+//import ReplaceIcon from "../../assets/icons/replacement";
 
 import PieChart from "../../assets/icons/pieChart";
 
 import ListItem from "./ListItem";
-import AddItem from "./AddItem";
+import AddItem from "./AddItem"; //НЕ используется, это добавление элементов как у Дударя (функция в файле AddItem.js)
 
 export default function Statistic1() { 
   const [infoWindow,setInfoWindow] = useState(false);
+  const [calendarWindow,setCalendarWindow] = useState(false);
   let month = "Ноябрь";
 
   const [listOfItems,setListOfItems] = useState([
@@ -93,8 +94,6 @@ export default function Statistic1() {
         <ListItem el = {item} />
       )} style={{width:"100%"}}/>
       
-      
-      
     </SafeAreaView >
   );
 }
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
 
 
 
-
+  //пока не доделано (для модальных окон)
   list:{
     backgroundColor: 'red',
     alignItems: 'center',

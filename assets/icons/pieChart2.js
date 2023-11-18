@@ -6,7 +6,7 @@ export default function PieChartComponent({dataPie,value}){
   return (
     <PieChart
       style={{ width: 150, height: 150 }}
-      innerRadius={50}
+      innerRadius={55}
       padAngle={0}
       data={dataPie}
     >
