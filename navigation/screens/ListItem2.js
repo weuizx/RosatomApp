@@ -11,7 +11,6 @@ export default function ListItem({el}){
       <View>
         <View style={styles.container}>
           <View style={{flexDirection:'row'}}>
-            <View style ={[styles.recycle,{backgroundColor: clrItem}]}/>
             <Image style={styles.img} source={require('../../assets/items/1.png')} />
             <Text style={styles.title} >{el.name}</Text>
           </View>
@@ -31,7 +30,6 @@ export default function ListItem({el}){
       <View>
         <View style={styles.container}>
           <View style={{flexDirection:'row'}}>
-            <View style ={[styles.recycle,{backgroundColor: clrItem}]}/>
             <Image style={styles.img} source={require('../../assets/items/1.png')} />
             <Text style={styles.title} >{el.name}</Text>
           </View>
@@ -75,13 +73,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     alignSelf: "center"
   },
-  recycle:{
-    width: 5,
-    height: 52,
-    borderRadius: 10,
-    marginLeft: 5,
-    alignSelf: "center"
-  },
   replace:{
     width: 20,
     height: 20,
@@ -96,4 +87,3 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end"
   }
 });
-

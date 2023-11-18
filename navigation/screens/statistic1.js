@@ -12,15 +12,16 @@ import {
 
 import InfoIcon from "../../assets/icons/info";
 import CalendarIcon from "../../assets/icons/calendar";
-import ReplaceIcon from "../../assets/icons/replacement";
+//import ReplaceIcon from "../../assets/icons/replacement";
 
 import PieChart from "../../assets/icons/pieChart";
 
 import ListItem from "./ListItem";
-import AddItem from "./AddItem";
+import AddItem from "./AddItem"; //НЕ используется, это добавление элементов как у Дударя (функция в файле AddItem.js)
 
 export default function Statistic1() { 
   const [infoWindow,setInfoWindow] = useState(false);
+  const [calendarWindow,setCalendarWindow] = useState(false);
   let month = "Ноябрь";
 
   const [listOfItems,setListOfItems] = useState([
@@ -83,13 +84,15 @@ export default function Statistic1() {
 
       </View>
 
-      {/* <AddItem addHandler = {addItem}/> */}
-      <View style={styles.listItems}>
-        <FlatList data={listOfItems} renderItem={({item}) => (
-          <ListItem el = {item} />
-        )}/>
+      <View style={styles.dataTextContainer}>
+        <Text style={styles.dataText}>Сегодня</Text>
       </View>
+
+      {/* <AddItem addHandler = {addItem}/> */}
       
+      <FlatList data={listOfItems} renderItem={({item}) => (
+        <ListItem el = {item} />
+      )} style={{width:"100%"}}/>
       
     </SafeAreaView >
   );
@@ -116,6 +119,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#4E9DDA26",
     flexDirection: "row",
     borderRadius: 11,
+    width: '90%',
+    justifyContent: 'space-between',
   },
   monthLabel:{
     textAlign: 'center',
@@ -124,8 +129,16 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-700",
     fontSize: 16
   },
-  listItems:{
+  dataTextContainer:{
+    paddingLeft: 25,
+    marginTop: 15,
+    marginBottom: 5,
     width: '100%'
+  },
+  dataText:{
+    fontFamily: "Roboto-400",
+    fontSize: 16,
+    color: "#333333"
   },
 
 
@@ -134,6 +147,7 @@ const styles = StyleSheet.create({
 
 
 
+  //пока не доделано (для модальных окон)
   list:{
     backgroundColor: 'red',
     alignItems: 'center',
