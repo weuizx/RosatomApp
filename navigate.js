@@ -15,7 +15,7 @@ export default function Navigate() {
   return (
   <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name = "SplashScreen"
           component = {SplashScreen}
           options = {{title: 'Экран загрузки', headerShown: false}}
@@ -29,7 +29,7 @@ export default function Navigate() {
           name = "Register"
           component = {Register}
           options = {{title: 'Регистрация', headerShown: false, headerLeft: null}}
-        /> */}
+        />
         <Stack.Screen
           name = "MainContainer"
           component = {MainContainer}

@@ -48,9 +48,9 @@ export default function App() {
     SplashScreen.hideAsync();
   }
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <MainStack/>
-    </View>
+    </SafeAreaView>
   );
 
   // if(font) {
