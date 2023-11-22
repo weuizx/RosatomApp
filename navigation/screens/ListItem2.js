@@ -4,13 +4,24 @@ import { StyleSheet, Text, TouchableOpacity,View,Image} from "react-native";
 import ReplacementIcon from '../../assets/icons/replacement';
 
 export default function ListItem({el}){
-  const clrItem = el.recyclable ? "#57B539" : "#B50827";
+  const clrItem1 = "#FBBF00";
+  const clrItem2 = "#019BE1";
+  const clrItem3 = "#00CF63";
+  let clrItem = "";
+  if(el.index == 1){
+    clrItem = clrItem1;
+  }else if(el.index == 2){
+    clrItem = clrItem2;
+  }else if(el.index == 3){
+    clrItem = clrItem3;
+  }
   
   if(el.replaceable){
     return (
       <View>
         <View style={styles.container}>
           <View style={{flexDirection:'row'}}>
+            <View style ={[styles.recycle,{backgroundColor: clrItem}]}/>
             <Image style={styles.img} source={require('../../assets/items/1.png')} />
             <Text style={styles.title} >{el.name}</Text>
           </View>
@@ -30,6 +41,7 @@ export default function ListItem({el}){
       <View>
         <View style={styles.container}>
           <View style={{flexDirection:'row'}}>
+            <View style ={[styles.recycle,{backgroundColor: clrItem}]}/>
             <Image style={styles.img} source={require('../../assets/items/1.png')} />
             <Text style={styles.title} >{el.name}</Text>
           </View>
@@ -85,5 +97,12 @@ const styles = StyleSheet.create({
     height: 1,
     width: '90%',
     alignSelf: "flex-end"
-  }
+  },
+  recycle:{
+    width: 5,
+    height: 52,
+    borderRadius: 10,
+    marginLeft: 5,
+    alignSelf: "center"
+  },
 });
