@@ -33,13 +33,13 @@ export default function Login({navigation}) {
     setError("");
 
     let body = JSON.stringify({
-      // 'email': email.toLowerCase(),
-      // 'password': password
-      "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
-      "password": "string",
-      "email": "user@example.com",
-      "first_name": "string",
-      "last_name": "string"
+      'username': email.toLowerCase(),
+      'password': password
+      // "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
+      // "password": "string",
+      // "email": "user@example.com",
+      // "first_name": "string",
+      // "last_name": "string"
     })
 
     fetch(`${domain}/auth/login`,{
