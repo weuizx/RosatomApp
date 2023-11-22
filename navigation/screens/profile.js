@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StatusBar } from "react-native";
 import * as Progress from 'react-native-progress';
 import {
     StyleSheet,
@@ -10,8 +11,32 @@ import {
     TouchableOpacity,
   } from "react-native";
 
+  import Camera from "../../assets/icons/camera";
+  import Pencil from "../../assets/icons/pencil";
+
   export default function Profile() { 
+
+    const [infoWindow,setInfoWindow] = useState(false);
+
+    let getProducts = () =>{
+      fetch("http://127.0.0.1:8000/product/")
+      .then(res => {
+        console.log(res.status);
+        console.log(res.headers);
+        return res.json();
+      })
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    };
+
     return(
+      
         <SafeAreaView style = {styles.profile}>
           
           <View style = {styles.titleView}>
@@ -24,13 +49,13 @@ import {
                <View style = {styles.profilePhoto}>
                 <Image 
                   source={{
-                    height : 90,
-                    width : 90,
-                    uri : 'https://instalook.ru/uploads/dakimakura/og-buda-3644.JPG',
+                    height : 75,
+                    width : 75,
+                    uri : 'https://livadiahotel.ru/upload/cimg_cache/b4d062905e8c03f7da82e056f888c4bb/e7a755d4276c2ccd3466efcf3bb76cad.jpg',
                   }}
                   style = {{borderRadius : 25}}
                   />
-                  <Image source = {require('../../assets/icons/camera.png')}/>
+                  <Button title = 'get' onPress={getProducts}/>
                </View>
 
                <View style = {{flex : 4}}>
@@ -45,9 +70,7 @@ import {
                 </View >
                </View >
                <View style = {styles.changeIcon}>
-                 <Image 
-                 source = {require('../../assets/icons/camera.png')}
-                 style = {{marginBottom : '150%'}}/>
+
                </View >
             </View >
           </View>
@@ -82,10 +105,10 @@ import {
           </View>
 
           <View style = {{flexDirection : 'row', marginTop : 30, paddingBottom : 0, justifyContent : 'space-evenly', height : 200}}>
-            <View style = {[styles.androidShadow, styles.iosShadow, {height : '65%', width : '40%', borderRadius: 25, backgroundColor : '#fff' }]}>
+            <View style = {[styles.androidShadow, styles.iosShadow, {height : '60%', width : '40%', borderRadius: 10, backgroundColor : '#fff' }]}>
 
             </View>
-            <View style = {[styles.androidShadow, styles.iosShadow, {height : '65%', width : '40%', borderRadius: 25, backgroundColor : '#fff'}]}>
+            <View style = {[styles.androidShadow, styles.iosShadow, {height : '60%', width : '40%', borderRadius: 10, backgroundColor : '#fff'}]}>
 
             </View>
           </View>
@@ -111,39 +134,52 @@ import {
       alignItems : 'center',
       justifyContent : 'center',
       backgroundColor : '#fff',
-      height : 220,
+      height : 140,
     },
 
     profilePhoto : {
       alignItems : 'center', 
       justifyContent : 'center', 
       backgroundColor : '#fff', 
-      flex : 2
+      flex : 2,
+      height : '90%',
+      marginTop : '7%',
+      marginleft :'2%',
+      borderRadius : 25
     },
 
     userData : {
       flex : 1, 
       flexDirection : 'column', 
-      justifyContent : 'space-evenly'
+      justifyContent : 'space-evenly',
+      backgroundColor : '#fff',
+      height : '90%',
+      marginTop : '2%',
+      borderRadius : 25
     },
 
     changeIcon : {
       alignItems : 'center', 
       justifyContent : 'center', 
       backgroundColor : '#fff', 
-      flex : 1
+      flex : 1,
+      height : '90%',
+      marginTop : '2%',
+      marginRight :'2%',
+      borderRadius : 25
     },
 
     progressView : {
     justifyContent : 'center', 
-    height : 100
+    height : 60,
+    backgroundColor : '#fff',
     },
 
     progressWindow : {
       alignItems : 'center', 
      // justifyContent : 'center', 
       backgroundColor : '#fff', 
-      height : 160
+      height : 120
     },
     
     underProgressBar : {
@@ -152,7 +188,7 @@ import {
       alignItems : 'center',
       flexDirection : 'row', 
       justifyContent : 'space-evenly',
-      marginTop: '-3%',
+      marginTop: '-2%',
       marginLeft: 5,
       marginRight: 5,
     },
@@ -168,7 +204,6 @@ import {
       fontFamily: 'Roboto-700',
       fontSize: 24,
       color: "#333333",
-      marginTop: 25,
       marginLeft : '7.5%'
     },
 
@@ -191,10 +226,10 @@ import {
       marginTop : '0%',
       backgroundColor: "#fff",
       width: '85%',
-      paddingBottom: 25,
+      paddingBottom: '3%',
       marginLeft: 25,
       marginRight: 25,
-      borderRadius: 25,
+      borderRadius: 10,
       alignItems: "center",
       height : '80%',
       shadowColor : '#333333',
@@ -209,7 +244,7 @@ import {
       paddingBottom: 10,
       marginLeft: 25,
       marginRight: 25,
-      borderRadius: 25,
+      borderRadius: 10,
       height : '90%',
       flexDirection : 'column', 
       justifyContent : 'space-evenly',
