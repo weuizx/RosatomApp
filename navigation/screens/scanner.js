@@ -10,8 +10,8 @@ import {
 
   export default function Scanner() { 
     return(
-        <SafeAreaView style = {styles.example}>
-            <Text>Scanner</Text>
+        <SafeAreaView style = {styles.container}>
+            <Text style={styles.title}>Ввести вручную</Text>
         </SafeAreaView >
     );
 
@@ -19,10 +19,18 @@ import {
 
   const styles = StyleSheet.create({
 
-    example : {
+    container : {
       flex : 1,
       alignItems : 'center',
-      justifyContent : 'center'
-    }
-     
+      //justifyContent : 'center',
+      backgroundColor: '#FFF',
+    },
+    title:{
+      color: '#15256D',
+      fontFamily: 'Roboto-700',
+      fontSize: 28,
+      alignSelf: 'center',
+      marginTop: 25,
+    },
+
   })
