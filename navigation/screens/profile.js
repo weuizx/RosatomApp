@@ -55,7 +55,7 @@ import {
                   }}
                   style = {{borderRadius : 25}}
                   />
-                  <Button title = 'get' onPress={getProducts}/>
+                  <Camera color = {"#4E9DDA"}/>
                </View>
 
                <View style = {{flex : 4}}>
@@ -70,7 +70,7 @@ import {
                 </View >
                </View >
                <View style = {styles.changeIcon}>
-
+                <Pencil color = {"#4E9DDA"}/>
                </View >
             </View >
           </View>

@@ -21,13 +21,19 @@ export default function Navigate(props) {
   return (
   <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name = "SplashScreen"
           component = {SplashScreen}
           options = {{title: 'Экран загрузки', headerShown: false}}
-        />
+        /> */}
 
-        {(!isLoggedIn || getCredentials == null) ?      //setIsLoggedIn гденибудь надо ли вызывать?
+        <Stack.Screen
+            name = "MainContainer"
+            component = {MainContainer}
+            options = {{title: 'Приложение', headerShown: false, headerLeft: null}}
+          />
+
+        {/* {(!isLoggedIn || getCredentials == null) ?      //setIsLoggedIn гденибудь надо ли вызывать?
           <>
           <Stack.Screen
             name = "Login"
@@ -46,7 +52,7 @@ export default function Navigate(props) {
             component = {MainContainer}
             options = {{title: 'Приложение', headerShown: false, headerLeft: null}}
           />
-        }
+        } */}
 
       </Stack.Navigator>
   </NavigationContainer>
