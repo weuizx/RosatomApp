@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { Context } from "./globalContext/globalContext";
 
 
 export default function Login({navigation}) {
@@ -17,8 +18,61 @@ export default function Login({navigation}) {
   const loadSceneRegister = () => {
     navigation.navigate('Register');
   }
+
+  const setIsLoggedIn = useContext(Context);
+  const domain = useContext(Context);
+  const setCredentials = useContext(Context);
+  //const {setIsLoggedIn,domain,setCredentials} = globalContext;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error,setError] = useState("");
+
+  function handleLogin (){
+
+    setError("");
+
+    let body = JSON.stringify({
+      // 'email': email.toLowerCase(),
+      // 'password': password
+      "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
+      "password": "string",
+      "email": "user@example.com",
+      "first_name": "string",
+      "last_name": "string"
+    })
+
+    fetch(`${domain}/auth/login`,{
+      method: 'POST',
+      headers:{
+        'accept': 'application/json', 
+        'Content-Type':'application/json'
+      },
+      body:body
+      })
+      .then(res => {
+        if(res.status == 200){ //или res.code
+          return res.json()
+        }else if (res.status == 400) {
+          setError("Username or password not provided")
+          throw res.json()
+        }else if (res.status == 401){
+          setError("Wrong password")
+          throw res.json()
+        }else {
+          setError("User not found")
+          throw res.json()
+        }
+      })
+      .then(json => {
+        //setUserObj(json)
+        setCredentials(json)
+        setIsLoggedIn(true)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,6 +81,8 @@ export default function Login({navigation}) {
         <SafeAreaView>
           <Text style={styles.title} >Вход</Text>
         </SafeAreaView>
+
+        <Text style = {styles.errorLabel}>{error}</Text>
 
         <SafeAreaView style={styles.inputView}>
           <TextInput
@@ -45,7 +101,7 @@ export default function Login({navigation}) {
           />
         </SafeAreaView>
 
-        <TouchableOpacity style={styles.loginBtn} onPress={loadSceneApp}>
+        <TouchableOpacity style={styles.loginBtn} onPress={() => handleLogin()}>
           <Text style={styles.loginBtnText}>Войти</Text>
         </TouchableOpacity>
 
@@ -132,6 +188,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto-400',
     fontSize: 10,
     color: '#000',
+  },
+  errorLabel:{
+    fontFamily: 'Roboto-400',
+    fontSize: 14,
+    color: '#333333',
   }
 });
 

@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { Context } from "./globalContext/globalContext";
 
 
 export default function Register({navigation}) {
@@ -17,8 +18,53 @@ export default function Register({navigation}) {
   const loadSceneLogin = () => {
     navigation.navigate('Login');
   }
+
+  const setIsLoggedIn = useContext(Context);
+  const domain = useContext(Context);
+  const setCredentials = useContext(Context);
+  //const {setIsLoggedIn,domain,setCredentials} = globalContext;
+
+
+  const [name,setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [error,setError] = useState("");
+
+  function handleReg (){
+
+    setError("");
+
+    let body = JSON.stringify({
+      'email': email.toLowerCase(),
+      'password': password,
+      'username': name,
+    })
+
+    fetch(`${domain}/auth/register`,{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:body
+      })
+      .then(res => {
+        if(res.status == 201){ //или res.code
+          return res.json()
+        }else {
+          setError("Invalid data provided")
+          throw res.json()
+        }
+      })
+      .then(json => {
+        //setUserObj(json)
+        setCredentials(json)
+        setIsLoggedIn(true)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -28,11 +74,13 @@ export default function Register({navigation}) {
           <Text style={styles.title} >Регистрация</Text>
         </SafeAreaView>
 
+        <Text style = {styles.errorLabel}>{error}</Text>
+
         <SafeAreaView style={styles.inputView}>
           <TextInput
             style={styles.inputText}
             placeholder="Имя"
-            onChangeText={(email) => setEmail(email)}
+            onChangeText={(name) => setName(name)}
           />
         </SafeAreaView>
 
@@ -53,7 +101,7 @@ export default function Register({navigation}) {
           />
         </SafeAreaView>
 
-        <TouchableOpacity style={styles.registerBtn} onPress={loadSceneApp}>
+        <TouchableOpacity style={styles.registerBtn} onPress={() => handleReg()}>
           <Text style={styles.registerBtnText}>Зарегестрироваться</Text>
         </TouchableOpacity>
 
@@ -129,5 +177,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#000',
   },
+  errorLabel:{
+    fontFamily: 'Roboto-400',
+    fontSize: 14,
+    color: '#333333',
+  }
 });
 
