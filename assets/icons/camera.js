@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { Path } from 'react-native-svg';
 
-function Camera(color) {
+function Camera({color}) {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

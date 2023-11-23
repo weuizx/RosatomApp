@@ -83,7 +83,7 @@ import {
                   }}
                   style = {{borderRadius : 25}}
                   />
-                  <Button title = 'get' onPress={getProducts}/>
+                  <Camera color = {"#4E9DDA"}/>
                </View>
 
                <View style = {{flex : 4}}>
@@ -98,7 +98,7 @@ import {
                 </View >
                </View >
                <View style = {styles.changeIcon}>
-
+                <Pencil color = {"#4E9DDA"}/>
                </View >
             </View >
           </View>
@@ -119,13 +119,13 @@ import {
                     <Progress.Bar progress={0.3} height = {10} width = {300} borderRadius={25} color='#4E9DDA' unfilledColor='#8D8C8C' borderColor="#fff" />
                   </View>
                   <View style = {styles.underProgressBar}>
-                    <View style = {styles.underProgressBar}>
+                    <View style = {[styles.underProgressBar,{justifyContent:'flex-start'}]}>
                       <Text style = {{fontFamily: 'Roboto-700', fontSize: 12, color: "#333333"}}>0</Text>
                     </View>
-                    <View style = {styles.underProgressBar}>
+                    <View style = {[styles.underProgressBar,{justifyContent:'center'}]}>
                       <Text style = {{fontFamily: 'Roboto-700', fontSize: 12, color: "#333333"}}>250</Text>
                     </View>
-                    <View style = {styles.underProgressBar}>
+                    <View style = {[styles.underProgressBar,{justifyContent:'flex-end'}]}>
                       <Text style = {{fontFamily: 'Roboto-700', fontSize: 12, color: "#333333"}}>500</Text>
                     </View>
                   </View>
