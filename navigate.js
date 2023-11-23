@@ -21,7 +21,7 @@ export default function Navigate(props) {
   return (
   <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name = "SplashScreen"
           component = {SplashScreen}
           options = {{title: 'Экран загрузки', headerShown: false}}
@@ -40,13 +40,13 @@ export default function Navigate(props) {
             options = {{title: 'Регистрация', headerShown: false, headerLeft: null}}
           />
           </>
-          :
+          : */}
           <Stack.Screen
             name = "MainContainer"
             component = {MainContainer}
             options = {{title: 'Приложение', headerShown: false, headerLeft: null}}
           />
-        }
+        {/* } */}
 
       </Stack.Navigator>
   </NavigationContainer>

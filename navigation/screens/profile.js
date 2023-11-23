@@ -35,6 +35,34 @@ import {
       )
     };
 
+    let somePut = () =>{
+      fetch("http://127.0.0.1:8000/company/", {
+        method : "POST",
+        headers : {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRFToken' : '802gj76MNOm4SxdPWlkZ75NdfFJewhkeQBzfdjMNTf9W1I6j2e5zr2MMZIbYNhi5'
+        },
+        body : JSON.stringify({
+          name : 'name123',
+          type : 'type321'
+        })
+      })
+      .then(res => {
+        console.log(res.status);
+        console.log(res.headers);
+        return res.json();
+      })
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    };
+
     return(
       
         <SafeAreaView style = {styles.profile}>

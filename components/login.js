@@ -42,7 +42,7 @@ export default function Login({navigation}) {
       // "last_name": "string"
     })
 
-    fetch(`${domain}/auth/login`,{
+    fetch(`${domain}/auth/login/`,{
       method: 'POST',
       headers:{
         'accept': 'application/json', 

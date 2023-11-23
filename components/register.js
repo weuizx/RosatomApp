@@ -41,7 +41,7 @@ export default function Register({navigation}) {
       'username': name,
     })
 
-    fetch(`${domain}/auth/register`,{
+    fetch(`${domain}/auth/register/`,{
       method: 'POST',
       headers:{
         'accept': 'application/json', 

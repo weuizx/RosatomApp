@@ -5,15 +5,15 @@ const Context = createContext()
 
 const Provider = ( {children }) => {
 
-  const [domain,setDomain] = useState("192.168.0.101:8000");
-  const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const [domain,setDomain] = useState("127.0.0.1:8000");
+  const [isLoggedIn,setIsLoggedIn] = useState(true);
   //const [userObj,setUserObj] = useState();
 
 
   var jwt_decode = require('jwt-decode')
 
   async function getAccessUsingRefresh (refreshToken) {
-    return fetch(`${domain}/auth/refresh`, {
+    return fetch(`${domain}/auth/refresh/`, {
       method: 'POST',
 
       headers: {
