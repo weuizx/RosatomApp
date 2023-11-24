@@ -8,6 +8,8 @@ import {
     View,
     Image,
     Button,
+    Modal,
+    TextInput,
     TouchableOpacity,
   } from "react-native";
 
@@ -16,7 +18,9 @@ import {
 
   export default function Profile() { 
 
-    const [infoWindow,setInfoWindow] = useState(false);
+    const [photoWindow,setPhotoWindow] = useState(false);
+    const [dataWindow,setDataWindow] = useState(false);
+    const [value, onChangeText] = useState('https://livadiahotel.ru/upload/cimg_cache/b4d062905e8c03f7da82e056f888c4bb/e7a755d4276c2ccd3466efcf3bb76cad.jpg');
 
     let getProducts = () =>{
       fetch("http://127.0.0.1:8000/product/")
@@ -83,7 +87,24 @@ import {
                   }}
                   style = {{borderRadius : 25}}
                   />
+
+                {/* <Modal transparent={true} visible={dataWindow} onRequestClose={() => setDataWindow(false)}>
+                 <TouchableOpacity style={styles.modalInfoContainer} onPress={ ()=> setDataWindow(false)}>
+                  <TouchableOpacity style={[styles.modalPhoto,styles.shadow]} activeOpacity={1}>  
+                    <View style={styles.lineInfo}>
+                     <TextInput
+                      style={styles.inputText}
+                      placeholder="   Введите url"
+                      onChangeText={text => onChangeText(text)}
+                      value={value}
+                     />
+                    </View>
+                   </TouchableOpacity>
+                 </TouchableOpacity>
+                </Modal> */}
+                <TouchableOpacity>
                   <Camera color = {"#4E9DDA"}/>
+                </TouchableOpacity>
                </View>
 
                <View style = {{flex : 4}}>
@@ -98,7 +119,11 @@ import {
                 </View >
                </View >
                <View style = {styles.changeIcon}>
-                <Pencil color = {"#4E9DDA"}/>
+
+
+                <TouchableOpacity>
+                  <Pencil color = {"#4E9DDA"}/>
+                </TouchableOpacity>  
                </View >
             </View >
           </View>
@@ -162,7 +187,7 @@ import {
       alignItems : 'center',
       justifyContent : 'center',
       backgroundColor : '#fff',
-      height : 140,
+      height : 160,
     },
 
     profilePhoto : {
@@ -188,12 +213,13 @@ import {
 
     changeIcon : {
       alignItems : 'center', 
-      justifyContent : 'center', 
+     // justifyContent : 'center', 
       backgroundColor : '#fff', 
       flex : 1,
       height : '90%',
-      marginTop : '2%',
+      marginTop : '5%',
       marginRight :'2%',
+      marginLeft :'4%',
       borderRadius : 25
     },
 
@@ -248,7 +274,7 @@ import {
       fontSize: 12,
       color: "#333333",
       marginTop: '3%',
-      marginLeft : '10%'
+      marginLeft : '4%'
     },
     innerProfileWindow:{
       marginTop : '0%',
@@ -295,6 +321,67 @@ import {
       height: 1,
       width: '90%',
       alignSelf: "flex-end"
-    }
+    },
+
+
+
+
+    modalInfoContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%'
+    },
+    modalPhoto: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 180,
+      height: 30,
+      backgroundColor: "#FFF",
+      borderRadius: 25,
+      position: 'absolute',
+      top: 180,
+      left: 80,
+      borderWidth: 1,
+    },
+    lineInfo:{
+      justifyContent: 'center',
+      height: 30,
+      alignItems: 'center',
+      //justifyContent: 'space-around',
+      //marginTop: 20,
+    //  marginLeft: 7,
+    },
+    circleInfo:{
+      width: 14,
+      height: 14,
+      borderRadius: '50%'
+    },
+    shadow:{
+      shadowColor : '#00000040',
+      shadowOpacity : 0.6,
+      shadowRadius : 6,
+      elevation : 10
+    },
+    textInfo:{
+      fontFamily: 'Roboto-400',
+      fontSize: 12,
+      marginLeft: 10,
+      color: "#333333",
+    },
+    inputText:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Roboto-400',
+      fontSize: 14,
+      color: '#333333',
+      height: 30,
+      width: 180,
+      borderRadius: 15,
+     // marginBottom: 10,
+    //  marginTop: 10
+    },
+
   })
   

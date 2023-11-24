@@ -46,13 +46,13 @@ export default function Navigate(props) {
             options = {{title: 'Регистрация', headerShown: false, headerLeft: null}}
           />
           </>
-          : */}
+          : 
           <Stack.Screen
             name = "MainContainer"
             component = {MainContainer}
             options = {{title: 'Приложение', headerShown: false, headerLeft: null}}
           />
-        {/* } */}
+          } */}
 
       </Stack.Navigator>
   </NavigationContainer>
