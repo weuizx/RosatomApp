@@ -1,12 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { StyleSheet, Text, TouchableOpacity,View,Image,Modal} from "react-native";
+import Carousel,  { Pagination } from "react-native-snap-carousel";
+
+import {dataReplace} from "./dataReplace";
 
 import ReplacementIcon from '../../assets/icons/replacement';
 import ArrowBack from '../../assets/icons/arrowBack';
 
+const renderItem1 = ({ item }) => {
+  return (
+    <View style={styles.renderItem1_parentView}>
+      <Image source={require("../../assets/items/"+item.source+".png")} style={styles.renderItem1_img} />
+      <View style={styles.renderItem1_view1}>
+        <Text style={styles.renderItem1_text1}>{item.title}</Text>
+      </View>
+      <View style={styles.renderItem1_view2}>
+        <Text style={styles.renderItem1_text2}>19 г</Text>
+        <TouchableOpacity>
+          <Text style={styles.renderItem1_text3}>16 г</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
 export default function ListItem({el}){
   const clrItem = el.recyclable ? "#57B539" : "#B50827";
   const [replaceWindow,setReplaceWindow] = useState(false);
+
+  const [page, setPage] = useState(0);
+  const isCarousel = useRef(null);
 
   if(el.replaceable){
     return (
@@ -27,7 +50,42 @@ export default function ListItem({el}){
                     <TouchableOpacity style={styles.arrow} onPress={ ()=> setReplaceWindow(false)}>
                       <ArrowBack color={"#8D8C8C"}/>
                     </TouchableOpacity>
-
+                    <View style={styles.containerCarousel}>
+                      <Carousel
+                        ref={isCarousel}
+                        onSnapToItem={(page) => setPage(page)}
+                        layout={"default"}
+                        data={dataReplace}
+                        renderItem={renderItem1}
+                        sliderWidth={310}
+                        itemWidth={100}
+                        itemHeight={170}
+                        sliderHeight={170}
+                      />
+                      <View style={{
+                        //flex: 1,
+                        alignItems: "center",
+                        paddingBottom: 20,
+                      }}>
+                        <Pagination
+                          activeDotIndex={page}
+                          carouselRef={isCarousel}
+                          tappableDots={true}
+                          inactiveDotOpacity={0.4}
+                          inactiveDotScale={0.6}
+                          dotsLength={dataReplace.length}
+                          dotStyle={{
+                            height: 5,
+                            width: 20,
+                            borderRadius: 20,
+                            backgroundColor: "#333333",
+                          }}
+                          inactiveDotStyle={{
+                            backgroundColor: "grey",
+                          }}
+                        />
+                      </View>
+                    </View>
                 </TouchableOpacity>
               </TouchableOpacity>
             </Modal>
@@ -125,7 +183,7 @@ const styles = StyleSheet.create({
   },
   modalReplace:{
     width: "100%",
-    height: '60%',
+    height: '50%',
     position: 'absolute',
     bottom: -25,
     backgroundColor: "#FFF",
@@ -148,5 +206,51 @@ const styles = StyleSheet.create({
     left: 20,
     position: 'relative',
   },
+
+
+  containerCarousel:{
+    //flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    //height: 170
+  },
+  renderItem1_parentView: {
+    //height: 160,
+    width: 310,
+  },
+  renderItem1_view1: {
+    width: 100,
+    marginBottom: 5,
+    marginTop: 5,
+  },
+  renderItem1_view2: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: 100,
+  },
+  renderItem1_img: {
+    width: 100,
+    height: 100,
+    borderRadius: 5,
+  },
+  renderItem1_text1: {
+    fontFamily: "Roboto-400",
+    fontSize: 12,
+    color: "#333333",
+    textAlign: 'center',
+  },
+  renderItem1_text2: {
+    fontSize: 12,
+    fontFamily: "Roboto-700",
+    color: "#8D8C8C",
+    textDecorationLine: 'line-through',
+  },
+  renderItem1_text3: {
+    fontSize: 12,
+    fontFamily: "Roboto-700",
+    color: "#4E9DDA",
+  },
+
 });
 
