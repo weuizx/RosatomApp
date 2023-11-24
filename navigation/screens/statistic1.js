@@ -25,7 +25,8 @@ export default function Statistic1() {
   const month9 = 'Сентябрь';
   const month10 = 'Октябрь';
   const month11 = 'Ноябрь';
-  let month = month11;
+  const [month,setMonth] = useState(month11);
+  //let month = month11;
   
   const [listOfItems11,setListOfItems11] = useState([
     {name: "Вода минеральная газированная S.Pellegrino", key: '1',recyclable:true, amount:'18',replaceable:false,index:1},
@@ -112,7 +113,7 @@ export default function Statistic1() {
           <TouchableOpacity style={styles.modalCalendarContainer} onPress={ ()=>setCalendarWindow(false)}>
             <TouchableOpacity style={[styles.modalCalendar,styles.shadow]} activeOpacity={1}>  
               <TouchableOpacity onPress={()=>{
-                month = month11
+                setMonth(month11)
                 setListOfItems(listOfItems11)
                 setCalendarWindow(false)
               }}>
@@ -122,7 +123,7 @@ export default function Statistic1() {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>{
-                month = month10
+                setMonth(month10)
                 setListOfItems(listOfItems10)
                 setCalendarWindow(false)
               }}> 
@@ -132,7 +133,7 @@ export default function Statistic1() {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>{
-                month = month9
+                setMonth(month9)
                 setListOfItems(listOfItems9)
                 setCalendarWindow(false)
               }}>
