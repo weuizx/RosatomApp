@@ -82,15 +82,18 @@ export default function Statistic2() {
             <TouchableOpacity style={[styles.modal,styles.shadow]} activeOpacity={1}>  
               <View style={styles.lineInfo}>
                 <View style={[styles.circleInfo,{backgroundColor:"#FBBF00"}]}/>
-                <Text style={styles.textInfo} >126 г</Text>
+                <Text style={styles.textInfo} >Пластик</Text>
+                <Text style={styles.textInfo2}>126 г</Text>
               </View>
               <View style={styles.lineInfo}>
                 <View style={[styles.circleInfo,{backgroundColor:"#019BE1"}]}/>
-                <Text style={styles.textInfo} >90 г</Text>
+                <Text style={styles.textInfo} >Бумага</Text>
+                <Text style={styles.textInfo2}>   90 г</Text>
               </View>
               <View style={styles.lineInfo}>
                 <View style={[styles.circleInfo,{backgroundColor:"#00CF63"}]}/>
-                <Text style={styles.textInfo} >84 г</Text>
+                <Text style={styles.textInfo} >Стекло</Text>
+                <Text style={styles.textInfo2}>   84 г</Text>
               </View>
             </TouchableOpacity>
           </TouchableOpacity>
@@ -211,7 +214,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   modal: {
-    width: 70,
+    width: 120,
     height: 82,
     backgroundColor: "#FFF",
     borderRadius: 5,
@@ -241,6 +244,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto-400',
     fontSize: 12,
     marginLeft: 10,
+  },
+  textInfo2:{
+    fontFamily: 'Roboto-400',
+    fontSize: 12,
+    marginLeft: 5,
   },
   modalCalendarContainer: {
     flex: 1,
