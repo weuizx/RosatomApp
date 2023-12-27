@@ -5,7 +5,7 @@ const Context = createContext()
 
 const Provider = ( {children }) => {
 
-  const [domain,setDomain] = useState("127.0.0.1:8000");
+  const [domain,setDomain] = useState("PetrVatrushkin.pythonanywhere.com");
   const [isLoggedIn,setIsLoggedIn] = useState(true);
   //const [userObj,setUserObj] = useState();
 

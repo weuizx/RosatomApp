@@ -19,9 +19,9 @@ export default function Register({navigation}) {
     navigation.navigate('Login');
   }
 
-  // const setIsLoggedIn = useContext(Context);
-  // const domain = useContext(Context);
-  // const setCredentials = useContext(Context);
+  const setIsLoggedIn = useContext(Context);
+  const domain = useContext(Context);
+  const setCredentials = useContext(Context);
   //const {setIsLoggedIn,domain,setCredentials} = globalContext;
 
 
@@ -29,43 +29,45 @@ export default function Register({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [error,setError] = useState("");
+  const [error,setError] = useState("");
 
-  // function handleReg (){
+  function handleReg (){
 
-  //   setError("");
+    setError("");
 
-  //   let body = JSON.stringify({
-  //     'email': email.toLowerCase(),
-  //     'password': password,
-  //     'username': name,
-  //   })
+    let body = JSON.stringify({
+      //'email': email.toLowerCase(),
+      //'password': password,
+      //'username': name,
+      "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
+      "password": "string",
+    })
 
-  //   fetch(`${domain}/auth/register/`,{
-  //     method: 'POST',
-  //     headers:{
-  //       'accept': 'application/json', 
-  //       'Content-Type':'application/json'
-  //     },
-  //     body:body
-  //     })
-  //     .then(res => {
-  //       if(res.status == 201){ //или res.code
-  //         return res.json()
-  //       }else {
-  //         setError("Invalid data provided")
-  //         throw res.json()
-  //       }
-  //     })
-  //     .then(json => {
-  //       //setUserObj(json)
-  //       setCredentials(json)
-  //       setIsLoggedIn(true)
-  //     })
-  //     .catch(error =>{
-  //       console.log(error)
-  //     })
-  // }
+    fetch(`http://127.0.0.1:8000/auth/register`,{
+      method: 'POST',
+      headers:{
+        'accept': 'application/json', 
+        'Content-Type':'application/json'
+      },
+      body:body
+      })
+      .then(res => {
+        if(res.status == 201){ //или res.code
+          return res.json()
+        }else {
+          setError("Invalid data provided")
+          throw res.json()
+        }
+      })
+      .then(json => {
+        //setUserObj(json)
+        setCredentials(json)
+        setIsLoggedIn(true)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -102,7 +104,7 @@ export default function Register({navigation}) {
           />
         </SafeAreaView>
 
-        <TouchableOpacity style={styles.registerBtn} onPress={loadSceneApp}>
+        <TouchableOpacity style={styles.registerBtn} onPress={handleReg}>
           <Text style={styles.registerBtnText}>Зарегестрироваться</Text>
         </TouchableOpacity>
 

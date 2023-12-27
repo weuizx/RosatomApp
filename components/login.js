@@ -19,60 +19,62 @@ export default function Login({navigation}) {
     navigation.navigate('Register');
   }
 
-  // const setIsLoggedIn = useContext(Context);
-  // const domain = useContext(Context);
-  // const setCredentials = useContext(Context);
+  const setIsLoggedIn = useContext(Context);
+  const domain = useContext(Context);
+  const setCredentials = useContext(Context);
   //const {setIsLoggedIn,domain,setCredentials} = globalContext;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error,setError] = useState("");
 
-  // function handleLogin (){
+  function handleLogin (){
 
-  //   setError("");
+    setError("");
 
-  //   let body = JSON.stringify({
-  //     'username': email.toLowerCase(),
-  //     'password': password
-  //     // "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
-  //     // "password": "string",
-  //     // "email": "user@example.com",
-  //     // "first_name": "string",
-  //     // "last_name": "string"
-  //   })
+    let body = JSON.stringify({
+      //'username': email.toLowerCase(),
+      //'password': password
+      "username": ".ZKqg9kB6PjM1IA7BLDu5uHzZOEMAYj9n91Q2Z-S.3MUBr-S.K@a.pAhXpIeB+w3pMF4rKxsw86FmRNDV_M4i12p55htbrZXV",
+      "password": "string",
+      // "email": "user@example.com",
+      // "first_name": "string",
+      // "last_name": "string"
+    })
 
-  //   fetch(`${domain}/auth/login/`,{
-  //     method: 'POST',
-  //     headers:{
-  //       'accept': 'application/json', 
-  //       'Content-Type':'application/json'
-  //     },
-  //     body:body
-  //     })
-  //     .then(res => {
-  //       if(res.status == 200){ //или res.code
-  //         return res.json()
-  //       }else if (res.status == 400) {
-  //         setError("Username or password not provided")
-  //         throw res.json()
-  //       }else if (res.status == 401){
-  //         setError("Wrong password")
-  //         throw res.json()
-  //       }else {
-  //         setError("User not found")
-  //         throw res.json()
-  //       }
-  //     })
-  //     .then(json => {
-  //       //setUserObj(json)
-  //       setCredentials(json)
-  //       setIsLoggedIn(true)
-  //     })
-  //     .catch(error =>{
-  //       console.log(error)
-  //     })
-  // }
+    fetch(`http://127.0.0.1:8000/auth/login`,{
+      method: 'POST',
+      headers:{
+        //'Access-Control-Allow-Origin' : '*',
+        //'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept',
+        'accept': 'application/json', 
+        'Content-Type':'application/json',
+      },
+      body:body
+      })
+      .then(res => {
+        if(res.status == 200){ //или res.code
+          return res.json()
+        }else if (res.status == 400) {
+          setError("Username or password not provided")
+          throw res.json()
+        }else if (res.status == 401){
+          setError("Wrong password")
+          throw res.json()
+        }else {
+          setError("User not found")
+          throw res.json()
+        }
+      })
+      .then(json => {
+        //setUserObj(json)
+        setCredentials(json)
+        setIsLoggedIn(true)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -101,7 +103,7 @@ export default function Login({navigation}) {
           />
         </SafeAreaView>
 
-        <TouchableOpacity style={styles.loginBtn} onPress={loadSceneApp}>
+        <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
           <Text style={styles.loginBtnText}>Войти</Text>
         </TouchableOpacity>
 
